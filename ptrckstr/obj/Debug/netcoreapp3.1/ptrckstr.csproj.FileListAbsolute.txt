@@ -1,0 +1,16 @@
+D:\Repository\ptrckstr\ptrckstr\bin\Debug\netcoreapp3.1\ptrckstr.exe
+D:\Repository\ptrckstr\ptrckstr\bin\Debug\netcoreapp3.1\ptrckstr.deps.json
+D:\Repository\ptrckstr\ptrckstr\bin\Debug\netcoreapp3.1\ptrckstr.runtimeconfig.json
+D:\Repository\ptrckstr\ptrckstr\bin\Debug\netcoreapp3.1\ptrckstr.runtimeconfig.dev.json
+D:\Repository\ptrckstr\ptrckstr\bin\Debug\netcoreapp3.1\ptrckstr.dll
+D:\Repository\ptrckstr\ptrckstr\bin\Debug\netcoreapp3.1\ptrckstr.pdb
+D:\Repository\ptrckstr\ptrckstr\obj\Debug\netcoreapp3.1\ptrckstr.csprojAssemblyReference.cache
+D:\Repository\ptrckstr\ptrckstr\obj\Debug\netcoreapp3.1\ptrckstr.AssemblyInfoInputs.cache
+D:\Repository\ptrckstr\ptrckstr\obj\Debug\netcoreapp3.1\ptrckstr.AssemblyInfo.cs
+D:\Repository\ptrckstr\ptrckstr\obj\Debug\netcoreapp3.1\ptrckstr.dll
+D:\Repository\ptrckstr\ptrckstr\obj\Debug\netcoreapp3.1\ptrckstr.pdb
+D:\Repository\ptrckstr\ptrckstr\obj\Debug\netcoreapp3.1\ptrckstr.genruntimeconfig.cache
+D:\Repository\ptrckstr\ptrckstr\bin\Debug\netcoreapp3.1\DSharpPlus.dll
+D:\Repository\ptrckstr\ptrckstr\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\Repository\ptrckstr\ptrckstr\obj\Debug\netcoreapp3.1\ptrckstr.csproj.CoreCompileInputs.cache
+D:\Repository\ptrckstr\ptrckstr\obj\Debug\netcoreapp3.1\ptrckstr.csproj.CopyComplete
