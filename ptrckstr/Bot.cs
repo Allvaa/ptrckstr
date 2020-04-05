@@ -1,6 +1,7 @@
 ﻿using DSharpPlus;
 using DSharpPlus.EventArgs;
 using Newtonsoft.Json;
+using ptrckstr.Events;
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -23,21 +24,10 @@ namespace ptrckstr
                 UseInternalLogHandler = true
             });
 
-            Client.Ready += OnClientReady;
-            Client.MessageCreated += async e =>
-            {
-                if (e.Message.Content.ToLower().Equals("haee"))
-                await e.Message.RespondAsync("Hi");
-            };
+            new ReadyEvent(Client);
 
             await Client.ConnectAsync();
             await Task.Delay(-1);
-        }
-
-        private Task OnClientReady(ReadyEventArgs e)
-        {
-            Console.WriteLine($"ppppppppppppppppppppppppppppppppppppp {e.Client.CurrentUser.Username}");
-            return Task.CompletedTask;
         }
 
         public async Task<Config> LoadConfigAsync()
