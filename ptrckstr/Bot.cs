@@ -1,8 +1,8 @@
 ﻿using DSharpPlus;
-using DSharpPlus.EventArgs;
+using DSharpPlus.CommandsNext;
 using Newtonsoft.Json;
+using ptrckstr.Commands;
 using ptrckstr.Events;
-using System;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -11,10 +11,12 @@ namespace ptrckstr
     class Bot
     {
         public DiscordClient Client { get; private set; }
+        public CommandsNextModule Commands { get; private set; }
+        public Config Configuration { get; private set; }
 
         public async Task TaskAsync()
         {
-            Config Configuration = await LoadConfigAsync();
+            Configuration = await LoadConfigAsync();
             Client = new DiscordClient(new DiscordConfiguration()
             {
                 Token = Configuration.Token,
@@ -24,10 +26,27 @@ namespace ptrckstr
                 UseInternalLogHandler = true
             });
 
-            new ReadyEvent(Client);
+            Commands = Client.UseCommandsNext(new CommandsNextConfiguration()
+            {
+                CaseSensitive = false,
+                EnableDms = false,
+                StringPrefix = Configuration.CommandPrefix
+            });
 
+            RegisterCommands();
+            RegisterEvents();
             await Client.ConnectAsync();
             await Task.Delay(-1);
+        }
+
+        private void RegisterCommands()
+        {
+            Commands.RegisterCommands<GeneralCommands>();
+        }
+
+        private void RegisterEvents()
+        {
+            new ReadyEvent(Client);
         }
 
         public async Task<Config> LoadConfigAsync()
