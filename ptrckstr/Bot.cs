@@ -42,6 +42,7 @@ namespace ptrckstr
         private void RegisterCommands()
         {
             Commands.RegisterCommands<GeneralCommands>();
+            Commands.RegisterCommands<MinecraftCommands>();
         }
 
         private void RegisterEvents()
