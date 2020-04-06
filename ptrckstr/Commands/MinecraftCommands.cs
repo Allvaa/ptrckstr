@@ -1,7 +1,6 @@
 ﻿using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
 using Newtonsoft.Json;
-using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -15,8 +14,8 @@ namespace ptrckstr.Commands
         public async Task MinecraftHead(CommandContext ctx, string Username)
         {
             string uuid = await GetUuidASync(Username);
-            if (uuid == null) await ctx.RespondAsync("gada");
-            await ctx.RespondAsync(uuid);
+            if (uuid == null) await ctx.RespondAsync("Player not found.");
+            await ctx.RespondAsync($"https://crafatar.com/renders/head/{uuid}?overlay");
         }
 
         private async Task<string> GetUuidASync(string Username)
