@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ptrckstr.Commands
 {
-    partial class MinecraftCommands
+    class MinecraftCommands
     {
         [Command("minecrafthead")]
         [Description("Get minecraft skin head")]
