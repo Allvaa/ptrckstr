@@ -1,6 +1,10 @@
-﻿using DSharpPlus.CommandsNext;
+﻿using DSharpPlus;
+using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
 using DSharpPlus.Entities;
+using Microsoft.CodeAnalysis.CSharp.Scripting;
+using Microsoft.CodeAnalysis.Scripting;
+using System;
 using System.Threading.Tasks;
 
 namespace ptrckstr.Commands
@@ -81,5 +85,44 @@ namespace ptrckstr.Commands
                 .Build();
             await ctx.RespondAsync(embed: Embed);
         }
+
+        [Command("eval")]
+        [RequireOwner]
+        public async Task Eval(CommandContext ctx, string code)
+        {
+            if (code == null)
+            {
+                return;
+            }
+
+            var options = ScriptOptions.Default.AddImports("System.Collections.Generic");
+            var globals = new ScriptGlobals { ctx = ctx, client = ctx.Client };
+
+            try
+            {
+                var start = DateTime.Now.Millisecond;
+                var script = CSharpScript.Create(code, options, typeof(ScriptGlobals));
+                var scriptState = await script.RunAsync(globals);
+                var returnValue = scriptState.ReturnValue;
+                if (returnValue != null)
+                    await ctx.RespondAsync($"<:yes:615730280619048970> **Success :**\n" +
+                        "```\n" +
+                        returnValue.ToString() +
+                        "\n```");
+            }
+            catch (Exception ex)
+            {
+                await ctx.RespondAsync("<:no:615730302936940554> **Error :**\n" +
+                    "```ini\n" +
+                    ex.Message +
+                    "\n```");
+            }
+        }
+    }
+
+    public class ScriptGlobals
+    {
+        public CommandContext ctx { get; internal set; }
+        public DiscordClient client { get; internal set; }
     }
 }

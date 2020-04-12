@@ -1,4 +1,5 @@
 ﻿using DSharpPlus;
+using Lavalink4NET;
 using System;
 using System.Threading.Tasks;
 

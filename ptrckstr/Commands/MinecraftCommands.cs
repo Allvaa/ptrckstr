@@ -66,7 +66,7 @@ namespace ptrckstr.Commands
 ")
                 .Build();
             }
-            await ctx.RespondAsync(embed: Embed); ;
+            await ctx.RespondAsync(embed: Embed);
         }
 
         private async Task<string> GetUuidASync(string Username)
